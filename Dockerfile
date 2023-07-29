@@ -6,7 +6,7 @@ FROM nginx:latest
 #  delete these lines from nginx.conf: "listen 80;" and "listen [::]:80;"
 
 WORKDIR /app
-USER root
+USER 10014
 
 COPY supervisor.conf /etc/supervisor/conf.d/supervisord.conf
 
