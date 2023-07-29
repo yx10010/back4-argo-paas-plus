@@ -48,9 +48,9 @@ RUN apt-get install -y supervisor && \
 RUN apt-get install -y openssh-server && \
     sed -i '1i\Port 2222' /etc/ssh/sshd_config && \
     mkdir -p /run/sshd && \
-    mkdir -p /root/.ssh && \
-    touch /root/.ssh/authorized_keys && \
-    chmod 644 /root/.ssh/authorized_keys
+    mkdir -p /10014/.ssh && \
+    touch /10014/.ssh/authorized_keys && \
+    chmod 644 /10014/.ssh/authorized_keys
 
 # Configure Dropbear, run along with with OpenSSH on port 2223
 RUN apt-get install --no-install-recommends -y dropbear && \
@@ -69,7 +69,7 @@ RUN wget -qO temp.zip $(echo aHR0cHM6Ly9naXRodWIuY29tL25haWJhL25lemhhL3JlbGVhc2V
 #    dpkg -i warp.deb || true && \
 #    rm -f warp.deb && \
 #    apt -y --fix-broken install && \
-#    mkdir -p /root/.local/share/warp && \
-#    echo "yes" > /root/.local/share/warp/accepted-tos.txt
+#    mkdir -p /10014/.local/share/warp && \
+#    echo "yes" > /10014/.local/share/warp/accepted-tos.txt
 
 ENTRYPOINT [ "./entrypoint.sh" ]
